@@ -1,0 +1,14 @@
+{% extends "base.html" %}
+
+{% block content %}
+  <div class="container-fluid">
+    <h1>Welcome to UCLA Library Home Page</h1>
+    <p>The library has the following record counts:</p>
+    <ul>
+      <li><strong>Books:</strong> {{ book_count }}</li>
+      <li><strong>Authors:</strong> {{ author_count }}</li>
+      <li><strong>Publishers:</strong> {{ publisher_count }}</li>
+
+    </ul>
+</div>
+{% endblock %}

@@ -1,0 +1,13 @@
+{% extends "base.html" %}
+
+{% block content %}
+  <div class = "container">
+
+	  <h1>Title: {{ book.title }}</h1>
+
+	  <p><strong>Author:</strong> <a href="">{{ book.author }}</a></p> <!-- author detail link not yet defined -->
+	  <p><strong>Book Volume:</strong> {{ book.volume }}</p>
+	  <p><strong>ISBN:</strong> {{ book.isbn }}</p> 
+	  <p><strong>Type of Book:</strong> {% for type in book.type_of_book.all %} {{ type }}{% if not forloop.last %}, {% endif %}{% endfor %}</p>  
+</div>
+{% endblock %}

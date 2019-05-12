@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  {% block title %}<title>UCLA Library</title>{% endblock %}
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
+  
+  <!-- Add additional CSS in static file -->
+  {% load static %}
+  <link rel="stylesheet" href="{% static 'css/styles.css' %}">
+</head>
+<body>
+  
+{% block navbar %}
+<nav class="navbar navbar-inverse">
+  <div class="container-fluid">
+    <div class="navbar-header">
+      <a class="navbar-brand" href="#">WebSiteName</a>
+    </div>
+    <ul class="nav navbar-nav">
+      <li class="active"><a href="{% url 'home_page' %}">Home</a></li>
+      <li><a href="{% url 'books' %}">Books</a></li>
+      <li><a href="#">Authors</a></li>
+    </ul>
+
+    <ul class="nav navbar-nav navbar-right">
+
+      {% if user.is_authenticated %}
+         <li>User: {{ user.get_username }}</li>
+         <li><a href="{% url 'logout'%}?next={{request.path}}">Logout</a></li>   
+      {% else %}
+       <li><a href="{% url 'login'%}?next={{request.path}}">Login</a></li>   
+     {% endif %} 
+   </ul>
+  </div>
+</nav>      
+
+{% endblock %}
+
+{% block content %}
+{% endblock %}
+      
+
+{% block footer %}
+{% endblock %}
+
+</body>
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.0/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
+</html>
+
